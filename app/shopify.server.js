@@ -58,11 +58,10 @@ import {
 } from "@shopify/shopify-app-remix/server";
 import { PrismaSessionStorage } from "@shopify/shopify-app-session-storage-prisma";
 import prisma from "./db.server";
-
-import authHandler   from "./app/custom_flow/auth";
-import healthHandler from "./app/custom_flow/health";
-import webhookHandler  from "./app/custom_flow/orders-create";
-import productsPage  from "./app/custom_flow/products.jsx";
+import authHandler    from "./custom_flow/auth";
+import healthHandler  from "./custom_flow/health";
+import webhookHandler from "./custom_flow/orders-create";
+import productsPage   from "./custom_flow/products.jsx";
 
 const shopify = shopifyApp({
   apiKey:         process.env.SHOPIFY_API_KEY,
