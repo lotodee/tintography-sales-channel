@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: tinytography-sales-channel
+    env: node
+    plan: starter
+    region: oregon
+    branch: main
+    repo: https://github.com/<your-org>/tinytography-channel.git
+    rootDirectory: tinytography-sales-channel
+    buildCommand: |
+      npm install
+      npm run setup
+      npm run build
+    startCommand: npm run start

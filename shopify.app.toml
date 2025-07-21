@@ -1,0 +1,39 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "d70ac85786c63a5c1512f1f185c642c1"
+name = "Tinytography Sales Channel"
+handle = "tinytography-sales-channel"
+application_url = "${HOST}"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2025-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[auth]
+redirect_urls = [
+
+  "${process.env.HOST}/auth/shopify/callback",
+  "${process.env.HOST}/api/auth/callback",
+  
+   "${HOST}/auth/callback",
+  "${HOST}/custom/auth",
+  "${HOST}/custom/auth/callback"
+
+
+]
+
+[pos]
+embedded = false
+

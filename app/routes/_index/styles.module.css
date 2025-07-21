@@ -1,0 +1,202 @@
+/* app/routes/styles.module.css */
+
+/* Full-screen centered layout */
+.index {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #faf9f5;
+}
+
+/* Remove .index::before background layer */
+
+.bgImg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  filter: blur(1px) brightness(0.5) saturate(1.01);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.centerContainer {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glassCard {
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 2.2rem;
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.1),
+    0 1.5px 8px 0 rgba(220, 201, 193, 0.08);
+  backdrop-filter: blur(8px) saturate(140%);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  border: 1.5px solid rgba(220, 201, 193, 0.18);
+  max-width: 420px;
+  width: 100%;
+  padding: 2.8rem 2.2rem 2.2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.2rem;
+  text-align: center;
+  transition:
+    box-shadow 0.2s,
+    border 0.2s;
+}
+.glassCard:hover {
+  box-shadow: 0 16px 48px 0 rgba(31, 38, 135, 0.14);
+  border: 1.5px solid #dcc9c1;
+}
+
+.heroHeading {
+  font-size: 2.3rem;
+  font-weight: 900;
+  line-height: 1.08;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -1.5px;
+}
+.heroAccent {
+  background: linear-gradient(90deg, #dcc9c1 30%, #faf9f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.heroTagline {
+  font-size: 1.08rem;
+  color: #6d5c55;
+  font-weight: 400;
+  opacity: 0.92;
+  margin: 0 0 1.2rem 0;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.featureList li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.01rem;
+  color: #3a2d29;
+  background: rgba(250, 249, 245, 0.82);
+  border-left: 4px solid #dcc9c1;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  box-shadow: 0 1px 6px rgba(220, 201, 193, 0.06);
+  opacity: 0.97;
+}
+.featureIcon {
+  font-size: 1.2em;
+  margin-right: 0.2em;
+}
+
+.loginSection {
+  width: 100%;
+  margin-top: 1.2rem;
+}
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2d2320;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  width: 100%;
+  margin-top: 0.2rem;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 1.01rem;
+  color: #4a3a36;
+  gap: 0.25rem;
+}
+.label span:last-child {
+  font-size: 0.93rem;
+  color: #b3a7a0;
+  margin-top: 0.18rem;
+}
+.input {
+  padding: 0.9rem 1.1rem;
+  border: 1.5px solid #e5ded8;
+  border-radius: 10px;
+  font-size: 1.07rem;
+  margin-top: 0.1rem;
+  background: rgba(255, 255, 255, 0.65);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 1px 6px rgba(220, 201, 193, 0.06);
+}
+.input:focus {
+  outline: none;
+  border-color: #dcc9c1;
+  box-shadow: 0 0 0 2px rgba(220, 201, 193, 0.18);
+}
+.button {
+  padding: 0.95rem 1.1rem;
+  background: linear-gradient(90deg, #dcc9c1 60%, #faf9f5 100%);
+  color: #fff;
+  font-size: 1.09rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(220, 201, 193, 0.13);
+  transition:
+    background 0.2s,
+    transform 0.1s,
+    box-shadow 0.2s;
+  letter-spacing: 0.01em;
+}
+.button:hover {
+  background: linear-gradient(90deg, #c4b1a8 60%, #dcc9c1 100%);
+  box-shadow: 0 4px 18px rgba(220, 201, 193, 0.16);
+}
+.button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+  .glassCard {
+    padding: 1.1rem 0.3rem;
+    max-width: 98vw;
+    border-radius: 1.2rem;
+  }
+  .heroHeading {
+    font-size: 1.2rem;
+  }
+  .heroTagline {
+    font-size: 0.95rem;
+  }
+  .featureList li {
+    font-size: 0.93rem;
+    padding: 0.6rem 0.6rem;
+  }
+}
