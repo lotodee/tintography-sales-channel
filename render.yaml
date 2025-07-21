@@ -1,3 +1,5 @@
+# render.yaml
+
 services:
   - type: web
     name: tinytography-sales-channel
@@ -5,8 +7,7 @@ services:
     plan: starter
     region: oregon
     branch: main
-    repo: https://github.com/<your-org>/tinytography-channel.git
-    rootDirectory: tinytography-sales-channel
+    repo: https://github.com/lotodee/tinytography-sales-channel.git
     buildCommand: |
       npm install
       npm run setup
