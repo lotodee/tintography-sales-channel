@@ -45,8 +45,6 @@
 // server.get("/api/custom/health", healthHandler);
 // server.post("/api/custom/orders-create", webhookHandler);
 // server.get("/custom/products", productsPage);
-// export const registerWebhooks = shopify.registerWebhooks;
-// export const sessionStorage = shopify.sessionStorage;
 
 
 // app/shopify.server.js
