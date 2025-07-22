@@ -66,6 +66,13 @@ export default defineConfig({
   ],
   build: {
     assetsInlineLimit: 0,
+    rollupOptions: {
+      external: ["mongodb", "node-fetch", "crypto"],
+    },
+  },
+   ssr: {
+   // Prevent bundling these in the SSR build
+    external: ["mongodb", "node-fetch", "crypto"],
   },
   optimizeDeps: {
     include: ["@shopify/app-bridge-react", "@shopify/polaris"],
