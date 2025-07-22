@@ -67,12 +67,31 @@ export default defineConfig({
   build: {
     assetsInlineLimit: 0,
     rollupOptions: {
-      external: ["mongodb", "node-fetch", "crypto"],
+      external: [
+        "mongodb",
+        "node-fetch",
+        "crypto",
+        "@shopify/shopify-app-remix",
+        "@shopify/shopify-app-session-storage-memory",
+        // relative server files too:
+        /^app\/custom_flow\/.*/,
+        /app\/db\.server\.js$/,
+        /app\/shopify\.server\.js$/,
+      ],
     },
   },
-   ssr: {
-   // Prevent bundling these in the SSR build
-    external: ["mongodb", "node-fetch", "crypto"],
+  ssr: {
+    // Prevent bundling these in the SSR build
+    external: [
+      "mongodb",
+      "node-fetch",
+      "crypto",
+      "@shopify/shopify-app-remix",
+      "@shopify/shopify-app-session-storage-memory",
+      /^app\/custom_flow\/.*/,
+      /app\/db\.server\.js$/,
+      /app\/shopify\.server\.js$/,
+    ],
   },
   optimizeDeps: {
     include: ["@shopify/app-bridge-react", "@shopify/polaris"],
