@@ -10,7 +10,7 @@
     "config:use": "shopify app config use",
     "env": "shopify app env",
     "docker-start": "npm run start",
-    "start": "remix-serve ./build/server/index.js --host 0.0.0.0 --port 10000",
+  "start": "remix-serve ./build/server/index.js --host 0.0.0.0 --port ${PORT:-3000}",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "shopify": "shopify",
     "graphql-codegen": "graphql-codegen",
