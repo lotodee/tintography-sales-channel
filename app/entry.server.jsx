@@ -105,11 +105,11 @@ export const streamTimeout = 5000;
 
 // Instantiate Shopify once, at module load:
 const shopify = shopifyApp({
-  apiKey: process.env.SHOPIFY_API_KEY!,
+  apiKey: process.env.SHOPIFY_API_KEY,
   apiSecretKey: process.env.SHOPIFY_API_SECRET || "",
   apiVersion: ApiVersion.January25,
   scopes: process.env.SCOPES?.split(","),
-  appUrl: process.env.SHOPIFY_APP_URL!,         // e.g. https://your-app.com
+  appUrl: process.env.SHOPIFY_APP_URL,         // e.g. https://your-app.com
   authPathPrefix: "/auth",                       // your OAuth entrypoint
   sessionStorage: new MemorySessionStorage(),    // no Prisma; in-memory only
   distribution: AppDistribution.AppStore,
