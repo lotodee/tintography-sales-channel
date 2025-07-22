@@ -73,8 +73,9 @@ export default defineConfig({
         "crypto",
         "@shopify/shopify-app-remix",
         "@shopify/shopify-app-session-storage-memory",
+        "mongodb",
+        "prisma",
         // relative server files too:
-  
       ],
     },
   },
@@ -84,6 +85,7 @@ export default defineConfig({
       "mongodb",
       "node-fetch",
       "crypto",
+      "prisma",
       "@shopify/shopify-app-remix",
       "@shopify/shopify-app-session-storage-memory",
     ],
