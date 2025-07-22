@@ -1,6 +1,6 @@
 // app/custom_flow/logic.js
 import { shopifyRest } from "./shopify";
-import { Shops } from "./db";
+import { getShopsCollection as Shops } from "./db";
 
 export async function fetchMyProducts() {
   const domain = "tinytography.myshopify.com",

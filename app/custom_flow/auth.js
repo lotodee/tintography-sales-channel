@@ -1,6 +1,6 @@
 // app/custom_flow/auth.js
 import dotenv from "dotenv";
-import { Shops } from "./db";
+import { getShopsCollection as Shops} from "./db";
 import { login as shopifyAuthCallback } from "../shopify.server";
 import { shopifyRest } from "./shopify";
 import { fetchMyProducts } from "./logic";

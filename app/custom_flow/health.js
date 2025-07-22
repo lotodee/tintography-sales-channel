@@ -1,5 +1,5 @@
 // app/custom_flow/health.js
-import { Shops } from "./db";
+import { getShopsCollection as Shops } from "./db";
 import { shopifyRest } from "./shopify";
 
 export default async function health(req, res) {
