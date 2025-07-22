@@ -74,9 +74,7 @@ export default defineConfig({
         "@shopify/shopify-app-remix",
         "@shopify/shopify-app-session-storage-memory",
         // relative server files too:
-        /^app\/custom_flow\/.*/,
-        /app\/db\.server\.js$/,
-        /app\/shopify\.server\.js$/,
+  
       ],
     },
   },
@@ -88,9 +86,6 @@ export default defineConfig({
       "crypto",
       "@shopify/shopify-app-remix",
       "@shopify/shopify-app-session-storage-memory",
-      /^app\/custom_flow\/.*/,
-      /app\/db\.server\.js$/,
-      /app\/shopify\.server\.js$/,
     ],
   },
   optimizeDeps: {
