@@ -1,9 +1,13 @@
 FROM node:18-alpine
-RUN apk add --no-cache openssl
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    openssl
 
 EXPOSE 3000
 
-WORKDIR /app
+WORKDIR .
 
 ENV NODE_ENV=production
 
@@ -19,3 +23,4 @@ COPY . .
 RUN npm run build
 
 CMD ["npm", "run", "docker-start"]
+
