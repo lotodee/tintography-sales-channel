@@ -5,7 +5,7 @@ RUN apk add --no-cache \
     g++ \
     openssl
 
-EXPOSE 3000
+EXPOSE 10000
 
 WORKDIR .
 
