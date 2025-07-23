@@ -1,26 +1,28 @@
 FROM node:18-alpine
-RUN apk add --no-cache \
-    python3 \
-    make \
-    g++ \
-    openssl
+RUN apk add --no-cache python3 make g++ openssl
 
+# Expose is only metadata; Render ignores it.
 EXPOSE 10000
 
-WORKDIR .
-
+WORKDIR /app
 ENV NODE_ENV=production
 
 COPY package.json package-lock.json* ./
-
 RUN npm ci --omit=dev && npm cache clean --force
-# Remove CLI packages since we don't need them in production by default.
-# Remove this line if you want to run CLI commands in your container.
 RUN npm remove @shopify/cli
 
+# Copy all source files—this currently includes .env
 COPY . .
 
+# Remove the .env so dotenv can't inject your local host/port
+RUN rm -f .env
+
+# Build your Remix app
 RUN npm run build
 
+# Start uses the updated 'start' script which only specifies --host
 CMD ["npm", "run", "docker-start"]
+
+
+//===================
 
