@@ -111,7 +111,7 @@ const shopify = shopifyApp({
   apiSecretKey: process.env.SHOPIFY_API_SECRET || "",
   apiVersion: ApiVersion.January25,
   scopes: process.env.SCOPES?.split(","),
-  appUrl: process.env.SHOPIFY_APP_URL || "",
+  appUrl: "https://tintography-sales-channel.onrender.com" || "",
   authPathPrefix: "/auth",
   // Use Shopify’s in-memory session storage adapter:
   sessionStorage: new MemorySessionStorage(),

@@ -21,7 +21,6 @@
 //   return new Response();
 // };
 
-
 // app/routes/webhooks.app.scopes_update.js
 import { json } from "@remix-run/node";
 import { authenticate } from "../shopify.server";
@@ -40,7 +39,7 @@ export const action = async ({ request }) => {
   await Shops.updateOne(
     { shop },
     { $set: { scopes: payload.current.toString() } },
-    { upsert: true }
+    { upsert: true },
   );
 
   // 4. Return 200 OK

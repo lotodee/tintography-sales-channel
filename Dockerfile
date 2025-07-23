@@ -14,12 +14,12 @@ RUN npm remove @shopify/cli
 # Copy all source files—this currently includes .env
 COPY . .
 
-# Remove the .env so dotenv can't inject your local host/port
+# Remove the .env so dotenv can't inject your local SHOPIFY_APP_URL/port
 RUN rm -f .env
 
 # Build your Remix app
 RUN npm run build
 
-# Start uses the updated 'start' script which only specifies --host
+# Start uses the updated 'start' script which only specifies --SHOPIFY_APP_URL
 CMD ["npm", "run", "docker-start"]
 

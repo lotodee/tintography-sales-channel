@@ -109,9 +109,9 @@ const shopify = shopifyApp({
   apiSecretKey: process.env.SHOPIFY_API_SECRET || "",
   apiVersion: ApiVersion.January25,
   scopes: process.env.SCOPES?.split(","),
-  appUrl: process.env.SHOPIFY_APP_URL,         // e.g. https://your-app.com
-  authPathPrefix: "/auth",                       // your OAuth entrypoint
-  sessionStorage: new MemorySessionStorage(),    // no Prisma; in-memory only
+  appUrl:"https://tintography-sales-channel.onrender.com",  // e.g. https://your-app.com
+  authPathPrefix: "/auth", // your OAuth entrypoint
+  sessionStorage: new MemorySessionStorage(), // no Prisma; in-memory only
   distribution: AppDistribution.AppStore,
   future: {
     unstable_newEmbeddedAuthStrategy: true,

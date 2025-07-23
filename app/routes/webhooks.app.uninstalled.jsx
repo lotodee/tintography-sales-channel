@@ -15,8 +15,6 @@
 //   return new Response();
 // };
 
-
-
 import { json } from "@remix-run/node";
 import { authenticate } from "../shopify.server";
 import { getShopsCollection } from "./custom_flow/db";

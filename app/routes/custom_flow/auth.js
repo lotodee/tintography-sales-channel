@@ -1,7 +1,7 @@
 // app/custom_flow/auth.js
 import dotenv from "dotenv";
 import { getShopsCollection as Shops } from "./db";
-import { login as shopifyAuthCallback } from "../../shopify.server";
+import { login as shopifyAuthCallback } from "../shopify.server";
 import { shopifyRest } from "./shopify";
 import { fetchMyProducts } from "./logic";
 dotenv.config();
@@ -17,7 +17,7 @@ export default async function auth(req, res) {
   await shopifyRest(shop, accessToken, "webhooks.json", "POST", {
     webhook: {
       topic: "orders/create",
-      address: `${process.env.HOST}/api/custom/orders-create`,
+      address: `${process.env.SHOPI}/api/custom/orders-create`,
       format: "json",
     },
   });
@@ -30,5 +30,5 @@ export default async function auth(req, res) {
   await Shops.updateOne({ shop }, { $set: { skuMap } }, { upsert: true });
   console.log("💾 Saved SKU map");
 
-  res.redirect(`${process.env.HOST}/custom/products?shop=${shop}`);
+  res.redirect(`${process.env.SHOPIFY_APP_URL}/custom/products?shop=${shop}`);
 }

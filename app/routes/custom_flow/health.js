@@ -3,6 +3,7 @@ import { getShopsCollection as Shops } from "./db";
 import { shopifyRest } from "./shopify";
 
 export default async function health(req, res) {
+  res.json("i saw certain")
   const server = true;
   let mongodb = false;
   try {

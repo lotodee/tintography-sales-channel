@@ -1,14 +1,11 @@
 // // app/custom_flow/products.jsx
 // import React, { useState, useEffect } from "react";
 
-
-
 // // export const loader = async ({ request }) => {
 // //   await authenticate.admin(request);
 
 // //   return { apiKey: process.env.SHOPIFY_API_KEY || "" };
 // // };
-
 
 // export default function ProductsPage() {
 //   const params = new URLSearchParams(window.location.search);
@@ -119,12 +116,10 @@
 //   );
 // }
 
-
-
 // app/custom_flow/products.jsx
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "@remix-run/react";
-import { authenticate } from "../../shopify.server";  // ← NEW
+import { authenticate } from "../shopify.server"; // ← NEW
 
 // Loader runs on the server before rendering the page:
 export const loader = async ({ request }) => {
@@ -145,8 +140,8 @@ export default function ProductsPage() {
   // Read loader data and URL params:
   const [searchParams] = useSearchParams();
   const shop = searchParams.get("shop") || "";
-  const [prods, setProds]     = useState([]);
-  const [msg, setMsg]         = useState("");
+  const [prods, setProds] = useState([]);
+  const [msg, setMsg] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -172,10 +167,13 @@ export default function ProductsPage() {
     setMsg("Importing…");
 
     try {
-      const res = await fetch(`/api/custom/import_products?shop=${encodeURIComponent(shop)}`, {
-        method: "POST",
-        body: form,
-      });
+      const res = await fetch(
+        `/api/custom/import_products?shop=${encodeURIComponent(shop)}`,
+        {
+          method: "POST",
+          body: form,
+        },
+      );
       if (!res.ok) throw new Error(await res.text());
       console.log("✅ Import successful");
       setMsg("Import complete!");
@@ -188,7 +186,14 @@ export default function ProductsPage() {
   if (loading) return <p>Loading…</p>;
 
   return (
-    <div style={{ padding: 20, maxWidth: 800, margin: "auto", fontFamily: "sans-serif" }}>
+    <div
+      style={{
+        padding: 20,
+        maxWidth: 800,
+        margin: "auto",
+        fontFamily: "sans-serif",
+      }}
+    >
       <h1>🔗 Tinytography Products</h1>
       {msg && <p>{msg}</p>}
 
@@ -208,11 +213,16 @@ export default function ProductsPage() {
         {prods.map((p) => (
           <div
             key={p.sku}
-            style={{ border: "1px solid #ccc", padding: 10, margin: 10, borderRadius: 4 }}
+            style={{
+              border: "1px solid #ccc",
+              padding: 10,
+              margin: 10,
+              borderRadius: 4,
+            }}
           >
             <label>
-              <input type="checkbox" name="sku" value={p.sku} defaultChecked /> {p.title} — $
-              {p.price}
+              <input type="checkbox" name="sku" value={p.sku} defaultChecked />{" "}
+              {p.title} — ${p.price}
             </label>
 
             <div>

@@ -6,32 +6,38 @@ import tsconfigPaths from "vite-tsconfig-paths";
 installGlobals({ nativeFetch: true });
 
 // Related: https://github.com/remix-run/remix/issues/2835#issuecomment-1144102176
-// Replace the HOST env var with SHOPIFY_APP_URL so that it doesn't break the remix server. The CLI will eventually
-// stop passing in HOST, so we can remove this workaround after the next major release.
+// Replace the SHOPIFY_APP_URL env var with SHOPIFY_APP_URL so that it doesn't break the remix server. The CLI will eventually
+// stop passing in SHOPIFY_APP_URL, so we can remove this workaround after the next major release.
 if (
-  process.env.HOST &&
+  process.env.SHOPIFY_APP_URL &&
   (!process.env.SHOPIFY_APP_URL ||
-    process.env.SHOPIFY_APP_URL === process.env.HOST)
+    process.env.SHOPIFY_APP_URL === process.env.SHOPIFY_APP_URL)
 ) {
-  process.env.SHOPIFY_APP_URL = process.env.HOST;
-  delete process.env.HOST;
+  process.env.SHOPIFY_APP_URL = process.env.SHOPIFY_APP_URL;
+  delete process.env.SHOPIFY_APP_URL;
 }
 
-const host = new URL(process.env.SHOPIFY_APP_URL || "http://localhost")
-  .hostname;
+const SHOPIFY_APP_URL = new URL(
+  process.env.SHOPIFY_APP_URL || "http://localSHOPIFY_APP_URL",
+).SHOPIFY_APP_URLname;
 let hmrConfig;
 
-if (host === "localhost") {
+
+
+
+
+
+if (SHOPIFY_APP_URL === "localSHOPIFY_APP_URL") {
   hmrConfig = {
     protocol: "ws",
-    host: "localhost",
+    SHOPIFY_APP_URL: "localSHOPIFY_APP_URL",
     port: 64999,
     clientPort: 64999,
   };
 } else {
   hmrConfig = {
     protocol: "wss",
-    host: host,
+    SHOPIFY_APP_URL: SHOPIFY_APP_URL,
     port: parseInt(process.env.FRONTEND_PORT) || 8002,
     clientPort: 443,
   };
@@ -39,7 +45,7 @@ if (host === "localhost") {
 
 export default defineConfig({
   server: {
-    allowedHosts: [host],
+    allowedSHOPIFY_APP_URLs: [SHOPIFY_APP_URL],
     cors: {
       preflightContinue: true,
     },
