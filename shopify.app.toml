@@ -3,7 +3,7 @@
 client_id = "d70ac85786c63a5c1512f1f185c642c1"
 name = "Tinytography Sales Channel"
 handle = "tinytography-sales-channel"
-application_url = "https://enjoyed-solving-officially-attached.trycloudflare.com"
+application_url = "https://tintography-sales-channel.onrender.com"
 embedded = true
 
 [build]
@@ -23,7 +23,15 @@ api_version = "2025-07"
 
 [auth]
 scopes = "read_products, read_orders, write_orders, read_inventory, write_products, write_inventory, write_fulfillments, read_fulfillments"
-redirect_urls = ["https://enjoyed-solving-officially-attached.trycloudflare.com/auth/callback", "https://enjoyed-solving-officially-attached.trycloudflare.com/auth/shopify/callback", "https://enjoyed-solving-officially-attached.trycloudflare.com/api/auth/callback"]
+redirect_urls = [
+
+  https://tintography-sales-channel.onrender.com/auth/shopify/callback
+  https://tintography-sales-channel.onrender.com/api/auth/callback
+  https://tintography-sales-channel.onrender.com/auth/callback
+  https://tintography-sales-channel.onrender.com/custom/auth
+  https://tintography-sales-channel.onrender.com/custom/auth/callback
+
+]
 
 [pos]
 embedded = false
